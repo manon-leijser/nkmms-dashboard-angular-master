@@ -1,0 +1,63 @@
+<br />
+<div class="margin-left">
+    <h2 class="h2-class">Top ten warnings</h2>
+</div>
+
+<mat-card class="cards">
+    <mat-card-content>
+        You can click on the grouped cluster id to receive more information about the warning. 
+        <br />
+        You can annotate the warning in that window as well as the Annotate-window.
+        <br />
+        <br />
+        You can click on the circuit number to receive more information about the circuit and it's components.
+    </mat-card-content>
+</mat-card>
+
+<div>
+    <mat-table class="table" [dataSource]="topTenWarnings" matSort>
+
+        <ng-container matColumnDef="grouped_cluster_id">
+            <mat-header-cell *matHeaderCellDef>Grouped cluster id</mat-header-cell>
+            <mat-cell *matCellDef="let topTenWarning "> <a href="warnings/warning/{{topTenWarning.grouped_cluster_id}}">{{topTenWarning.grouped_cluster_id}}</a> </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="circuit_nr">
+            <mat-header-cell *matHeaderCellDef>Circuit nr</mat-header-cell>
+            <mat-cell *matCellDef="let topTenWarning "> <a href="circuits/{{topTenWarning.circuit_nr}}">{{topTenWarning.circuit_nr}}</a> </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="median_location">
+            <mat-header-cell *matHeaderCellDef>Median Location</mat-header-cell>
+            <mat-cell *matCellDef="let topTenWarning ">{{topTenWarning.median_location}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="min_time">
+            <mat-header-cell *matHeaderCellDef>Minimum time</mat-header-cell>
+            <mat-cell *matCellDef="let topTenWarning ">{{topTenWarning.min_time}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="max_time">
+            <mat-header-cell *matHeaderCellDef>Maximum time</mat-header-cell>
+            <mat-cell *matCellDef="let topTenWarning ">{{topTenWarning.max_time}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="proba">
+            <mat-header-cell *matHeaderCellDef>Proba</mat-header-cell>
+            <mat-cell *matCellDef="let topTenWarning ">{{topTenWarning.proba}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="confluence_link">
+            <mat-header-cell *matHeaderCellDef>Confluence link</mat-header-cell>
+            <mat-cell *matCellDef="let topTenWarning "><a href="{{topTenWarning.confluence_link}}"><mat-icon fontIcon="arrow_circle_right"></mat-icon></a></mat-cell>
+        </ng-container>
+
+        
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+    </mat-table>
+    <div *ngIf="isLoading" style="display: flex; justify-content: center; align-items: center; background: white;">
+        <h3>Loading..</h3>
+    </div>
+</div>

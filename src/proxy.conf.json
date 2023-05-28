@@ -1,0 +1,43 @@
+{
+    "/api/v1/warnings/urgent_warning": {
+        "target": "https://swop-api-so-nkm-dev.apps.ocp-prd.alliander.com",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    },
+
+    "/api/v1/warnings/top_ten": {
+        "target": "https://swop-api-so-nkm-dev.apps.ocp-prd.alliander.com",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    },
+
+    "/api/v1/warnings/warning": {
+        "target": "https://swop-api-so-nkm-dev.apps.ocp-prd.alliander.com",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    },
+
+    "/api/v1/warnings/find": {
+        "target": "https://swop-api-so-nkm-dev.apps.ocp-prd.alliander.com",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    },
+
+    "/api/v1/circuits": {
+        "target": "https://swop-api-so-nkm-dev.apps.ocp-prd.alliander.com",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    },
+
+    "/api/v1/warnings/annotation/": {
+        "target": "https://swop-api-so-nkm-dev.apps.ocp-prd.alliander.com",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    }
+}

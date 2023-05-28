@@ -1,0 +1,104 @@
+<br />
+<div class="margin-left">
+    <h2 class="h2-class">Circuit components</h2>
+</div>
+
+<div>
+    <plotly-plot [data]="dataPlotly" [layout]="layout"></plotly-plot>
+</div>
+
+<div echarts [options]="options" class="echarts"></div>
+
+<div>
+    <mat-table class="table" [dataSource]="circuitComponents" matSort>
+
+        <ng-container matColumnDef="component_order">
+            <mat-header-cell *matHeaderCellDef>Component order</mat-header-cell>
+            <mat-cell *matCellDef="let circuitComponent ">{{circuitComponent.component_order}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="component_type">
+            <mat-header-cell *matHeaderCellDef>Component type</mat-header-cell>
+            <mat-cell *matCellDef="let circuitComponent ">{{circuitComponent.component_type}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="component_name">
+            <mat-header-cell *matHeaderCellDef>Component name</mat-header-cell>
+            <mat-cell *matCellDef="let circuitComponent ">{{circuitComponent.component_name}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="circuit_nr">
+            <mat-header-cell *matHeaderCellDef>Circuit number</mat-header-cell>
+            <mat-cell *matCellDef="let circuitComponent ">{{circuitComponent.circuit_nr}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="length_m">
+            <mat-header-cell *matHeaderCellDef>Length in meters</mat-header-cell>
+            <mat-cell *matCellDef="let circuitComponent ">{{circuitComponent.length_m}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="distance_to_start_m">
+            <mat-header-cell *matHeaderCellDef>Distance to start in meters</mat-header-cell>
+            <mat-cell *matCellDef="let circuitComponent ">{{circuitComponent.distance_to_start_m}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="distance_to_end_m">
+            <mat-header-cell *matHeaderCellDef>Distance to end in meters</mat-header-cell>
+            <mat-cell *matCellDef="let circuitComponent ">{{circuitComponent.distance_to_end_m}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="used_velocity_m_per_mus">
+            <mat-header-cell *matHeaderCellDef>Used velocity</mat-header-cell>
+            <mat-cell *matCellDef="let circuitComponent ">{{circuitComponent.used_velocity_m_per_mus}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="alliander_nan">
+            <mat-header-cell *matHeaderCellDef>Alliander</mat-header-cell>
+            <mat-cell *matCellDef="let circuitComponent ">{{circuitComponent.alliander_nan}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+            <mat-cell *matCellDef="let circuitComponent ">{{circuitComponent.description}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="housing_number">
+            <mat-header-cell *matHeaderCellDef>Housing number</mat-header-cell>
+            <mat-cell *matCellDef="let circuitComponent ">{{circuitComponent.housing_number}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="date_built">
+            <mat-header-cell *matHeaderCellDef>Date built</mat-header-cell>
+            <mat-cell *matCellDef="let circuitComponent ">{{circuitComponent.date_built}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="x_coordinate">
+            <mat-header-cell *matHeaderCellDef>X coordinate</mat-header-cell>
+            <mat-cell *matCellDef="let circuitComponent ">{{circuitComponent.x_coordinate}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="y_coordinate">
+            <mat-header-cell *matHeaderCellDef>Y coordinate</mat-header-cell>
+            <mat-cell *matCellDef="let circuitComponent ">{{circuitComponent.y_coordinate}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="component_version">
+            <mat-header-cell *matHeaderCellDef>Component version</mat-header-cell>
+            <mat-cell *matCellDef="let circuitComponent ">{{circuitComponent.component_version}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="data_source">
+            <mat-header-cell *matHeaderCellDef>Data source</mat-header-cell>
+            <mat-cell *matCellDef="let circuitComponent ">{{circuitComponent.data_source}}</mat-cell>
+        </ng-container>
+
+        
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+    </mat-table>
+    <div *ngIf="isLoading" style="display: flex; justify-content: center; align-items: center; background: white;">
+        <h3>Loading..</h3>
+    </div>
+</div>
+
+<a href="circuits/{{circuitComponent.circuit_nr}}"><mat-icon fontIcon="arrow_back"></mat-icon></a>

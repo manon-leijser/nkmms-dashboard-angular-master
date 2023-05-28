@@ -1,0 +1,38 @@
+
+<br />
+ <h1 class="margin-left">Find warnings</h1>
+  <form (ngSubmit)="onSubmit()" class="margin-left">
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Circuit number</mat-label>
+          <input #circuit_nr matInput placeholder="Circuit number" (keyup.enter)="onKeyCircuitNr(circuit_nr.value)">
+          <mat-hint>Example: 9999</mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Location</mat-label>
+          <input #location matInput placeholder="Location" (keyup.enter)="onKeyLocation(location.value)">
+          <mat-hint>Example: 100</mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Decision type</mat-label>
+          <mat-select>
+            <input #decision_type matInput (keyup.enter)="onKeyDecisionType(decision_type.value)">
+            <mat-option value="snoozed_warnings">Snoozed warnings</mat-option>
+            <mat-option value="request_removal">Request removal</mat-option>
+            <mat-option value="second_opinion">Second opinion by Meetdienst</mat-option>
+            <mat-option value="noise_cluster">Noise cluster</mat-option>
+            <mat-option value="no_monitoring">No monitoring needed</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+      <p>
+        <button type="submit" class="btn btn-success">Search</button>
+      </p>
+    </form>
+    <div>
+      <app-find-warnings [circuit_nr]="circuit_nrInput" [location]="locationInput" [decision_type]="decision_typeInput"></app-find-warnings>
+    </div>

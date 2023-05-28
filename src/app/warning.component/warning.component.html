@@ -1,0 +1,75 @@
+<br />
+<div class="margin-left">
+    <h2 class="h2-class">Warning information</h2>
+</div>
+
+<div>
+    <mat-table class="table" [dataSource]="warnings" matSort>
+
+        <ng-container matColumnDef="grouped_cluster_id">
+            <mat-header-cell *matHeaderCellDef>Grouped cluster id</mat-header-cell>
+            <mat-cell *matCellDef="let warnings "> {{warnings.grouped_cluster_id}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="circuit_nr">
+            <mat-header-cell *matHeaderCellDef>Circuit number</mat-header-cell>
+            <mat-cell *matCellDef="let warnings "><a href="circuits/{{warnings.circuit_nr}}">{{warnings.circuit_nr}}</a></mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="confluence_link">
+            <mat-header-cell *matHeaderCellDef>Confluence link</mat-header-cell>
+            <mat-cell *matCellDef="let warnings "><a href="{{warnings.confluence_link}}"><mat-icon fontIcon="arrow_circle_right"></mat-icon></a></mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="annotations">
+            <mat-header-cell *matHeaderCellDef>Annotations</mat-header-cell>
+            <mat-cell *matCellDef="let warnings "> {{warnings.annotations}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="median_location">
+            <mat-header-cell *matHeaderCellDef>Median location</mat-header-cell>
+            <mat-cell *matCellDef="let warnings "> {{warnings.median_location}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="min_time">
+            <mat-header-cell *matHeaderCellDef>Minimum time</mat-header-cell>
+            <mat-cell *matCellDef="let warnings "> {{warnings.min_time}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="max_time">
+            <mat-header-cell *matHeaderCellDef>Maximum time</mat-header-cell>
+            <mat-cell *matCellDef="let warnings "> {{warnings.max_time}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="proba">
+            <mat-header-cell *matHeaderCellDef>Proba</mat-header-cell>
+            <mat-cell *matCellDef="let warnings "> {{warnings.proba}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="number_of_customers">
+            <mat-header-cell *matHeaderCellDef>Number of customers</mat-header-cell>
+            <mat-cell *matCellDef="let warnings "> {{warnings.number_of_customers}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="expected_svbm_in_case_of_failure">
+            <mat-header-cell *matHeaderCellDef>Expected svbm in case of failure</mat-header-cell>
+            <mat-cell *matCellDef="let warnings "> {{warnings.expected_svbm_in_case_of_failure}}</mat-cell>
+        </ng-container>
+        
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+    </mat-table>
+    <div *ngIf="isLoading" style="display: flex; justify-content: center; align-items: center; background: white;">
+        <h3>Loading..</h3>
+    </div>
+</div>
+
+<h2>Apache Echart</h2>
+<app-apache-echart></app-apache-echart>
+<h2>Plotly</h2>
+<app-plotly></app-plotly>
+
+<app-warning-annotation></app-warning-annotation>
+
+<a href="http://localhost:4200/top-ten-warnings"><mat-icon fontIcon="arrow_back"></mat-icon></a>

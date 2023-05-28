@@ -1,0 +1,13 @@
+<!-- <div>
+    <label>Value</label>
+    <label>{{startvalue}}</label>
+    <label>{{endvalue}}</label>
+</div>
+<mat-slider min="0" max="500">
+    <input matSliderStartThumb [(ngModel)]="startvalue">
+    <input matSliderEndThumb [(ngModel)]="endvalue">
+</mat-slider> -->
+
+<plotly-plot [data]="dataPlotly3d" [layout]="layoutPlotly3d"></plotly-plot>
+<plotly-plot [data]="dataPlotlyLoc" [layout]="layoutPlotlyLoc"></plotly-plot>
+<plotly-plot [data]="dataPlotlyDate" [layout]="layoutPlotlyDate"></plotly-plot>

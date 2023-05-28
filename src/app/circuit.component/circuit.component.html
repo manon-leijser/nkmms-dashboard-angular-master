@@ -1,0 +1,52 @@
+<br />
+<div class="margin-left">
+    <h2 class="h2-class">Circuit information</h2>
+</div>
+
+<mat-card class="cards">
+    <mat-card-content>
+       More information about the circuit and its components
+    </mat-card-content>
+</mat-card>
+
+<div>
+    <mat-table class="table" [dataSource]="circuits" matSort>
+
+        <ng-container matColumnDef="circuit_nr">
+            <mat-header-cell *matHeaderCellDef>Circuit number</mat-header-cell>
+            <mat-cell *matCellDef="let circuit "> <a href="circuits/{{circuit.circuit_nr}}/components">{{circuit.circuit_nr}}</a> </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="circuit_name">
+            <mat-header-cell *matHeaderCellDef>Circuit name</mat-header-cell>
+            <mat-cell *matCellDef="let circuit ">{{circuit.circuit_name}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="circuit_id">
+            <mat-header-cell *matHeaderCellDef>Circuit id</mat-header-cell>
+            <mat-cell *matCellDef="let circuit ">{{circuit.circuit_id}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="expected_svbm">
+            <mat-header-cell *matHeaderCellDef>Expected svbm</mat-header-cell>
+            <mat-cell *matCellDef="let circuit ">{{circuit.expected_svbm}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="number_of_customers">
+            <mat-header-cell *matHeaderCellDef>Number of customers</mat-header-cell>
+            <mat-cell *matCellDef="let circuit ">{{circuit.number_of_customers}}</mat-cell>
+        </ng-container>
+
+        
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+    </mat-table>
+    <div *ngIf="isLoading" style="display: flex; justify-content: center; align-items: center; background: white;">
+        <h3>Loading..</h3>
+    </div>
+</div>
+
+<app-circuit-components></app-circuit-components>
+
+<a href="http://localhost:4200/top-ten-warnings"><mat-icon fontIcon="arrow_back"></mat-icon></a>

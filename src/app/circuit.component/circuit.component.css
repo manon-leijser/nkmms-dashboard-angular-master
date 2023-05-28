@@ -1,0 +1,9 @@
+.margin-left {
+    margin-left: 20px;
+}
+
+.cards {
+    max-width: fit-content;
+    margin-bottom: 8px; 
+    margin-left: 10px; 
+}
